@@ -1,0 +1,6 @@
+![image](https://github.com/Nikhilgarg20/Assignment2/assets/133539628/59cbdbbc-8410-4e24-ad5f-f05037a41697)
+![image](https://github.com/Nikhilgarg20/Assignment2/assets/133539628/57c893b9-27c5-410a-9501-6ec1b9cba01a)
+![image](https://github.com/Nikhilgarg20/Assignment2/assets/133539628/442d199a-42ff-499e-bd89-1165a5cb20b3)
+![image](https://github.com/Nikhilgarg20/Assignment2/assets/133539628/ba028460-37fb-4a91-8f0c-a5f7daff5264)
+![image](https://github.com/Nikhilgarg20/Assignment2/assets/133539628/9f3dcf36-fcf9-4ead-90e6-8da486ec359e)
+![image](https://github.com/Nikhilgarg20/Assignment2/assets/133539628/df73baaa-339e-4017-acbc-3d42673e8c8d)
