@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Pagination</title>
+</head>
+<body>
+    <h1>Gallery Pagination</h1>
+    <div id="image_container"></div>
+    <button id="previous" disabled>Previous</button>
+    <button id="next">Next</button>
+
+    <script>
+        let currentPage = 1;
+        const itemsPerPage = 5;
+
+        function fetchImages(page) {
+            fetch(`/fetch-all/pages/${page}?items_per_page=${itemsPerPage}`)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('image_container');
+                    container.innerHTML = '';
+                    data.files.forEach(file => {
+                        const img = document.createElement('img');
+                        img.src = `./uploads/${file}`;
+                        img.width = 200;
+                        container.appendChild(img);
+                    });
+                    document.getElementById('previous').disabled = data.page === 1;
+                    document.getElementById('next').disabled = data.page === data.totalPages;
+                })
+                .catch(error => console.error('Error fetching images:', error));
+        }
+
+        document.getElementById('previous').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                fetchImages(currentPage);
+            }
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentPage++;
+            fetchImages(currentPage);
+        });
+
+        fetchImages(currentPage);
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Random Images</title>
+</head>
+<body>
+    
+    <h1>Multiple Random Images</h1>
+    <button id="fetch-images">Fetch Images</button>
+    <div id="image_container"></div>
+
+    <script>
+        document.getElementById("fetch-images").addEventListener("click", () => {
+            fetch("/fetch-multiple-images")
+            .then(response => response.json())
+            .then(images => {
+                console.log("Fetched images:", images);  // Debug log
+                const container = document.getElementById("image_container");
+                container.innerHTML = "";
+                images.forEach(image => { 
+                    const img = document.createElement("img");
+                    img.src = `./uploads/${image}`;
+                    img.width = 200;
+                    img.onerror = () => console.error(`Error loading image: ${img.src}`);  // Debug log for image load error
+                    console.log(`Image path: ${img.src}`);  // Log image path
+                    container.appendChild(img);
+                });
+            })
+            .catch(error => console.error("Error fetching images:", error));
+        });
+    </script>
+
+</body>
+</html>
